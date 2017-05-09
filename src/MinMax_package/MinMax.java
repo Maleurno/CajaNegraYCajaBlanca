@@ -5,10 +5,9 @@ public class MinMax {
 	public static int[] minMax(int[] xs){
 		int[] result=null;
 		int mi, ma;
-		if(xs != null && xs.length != 0){
+		if(xs != null){
 			mi = ma = xs[0];
-			for(int i = 1; i< xs.length; i++){
-				int n =xs [i];
+			for(int n : xs){
 				if(n > ma){
 					ma = n;
 				}else if(n < mi){
@@ -16,6 +15,8 @@ public class MinMax {
 				}
 			}
 			result =new int[] {mi,ma};
+		}else{
+			throw new EmptyNumberException("No se admite número negativo");
 		}
 		return result;
 	}

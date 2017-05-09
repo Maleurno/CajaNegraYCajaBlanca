@@ -3,7 +3,9 @@ package TesteoMinMax;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import org.junit.rules.ExpectedException;
 
+import MinMax_package.EmptyNumberException;
 import MinMax_package.MinMax;
 
 public class CajaNegra {
@@ -54,11 +56,28 @@ public class CajaNegra {
 	}
 	
 	@Test
-	public void comprarResultadosConMasDeDosValores(){
+	public void comprobarResultadosConMasDeDosValores(){
 		xs =new int[] {1,0,2};
 		xs = MinMax.minMax(xs);
 		assertEquals(0,xs[0],EPSILON);
 		assertEquals(2,xs[1],EPSILON);
+	}
+	
+	@Test(expected = EmptyNumberException.class)
+	public void comprobarErrorCuandoSeIntroduceUnaListaVacia(){
+		xs = null;
+		MinMax.minMax(xs);
+	}
+	
+	@Rule
+	public ExpectedException e = ExpectedException.none();
+	
+	@Test
+	public void comprobarMensajeDeErrorCuandoSeIntroduceListaVacia(){
+		e.expect(EmptyNumberException.class);
+		e.expectMessage("No se admite número negativo");
+		xs = null;
+		MinMax.minMax(xs);
 	}
 
 }
