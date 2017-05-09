@@ -1,8 +1,10 @@
-package MinMax_package;
+package TesteoMinMax;
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
+
+import MinMax_package.MinMax;
 
 public class CajaNegra {
 	private int[] xs;
