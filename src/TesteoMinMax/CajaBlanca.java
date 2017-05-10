@@ -1,6 +1,8 @@
 package TesteoMinMax;
 
 import org.junit.*;
+
+import MinMax_package.EmptyNumberException;
 import MinMax_package.MinMax;
 
 public class CajaBlanca {
@@ -22,7 +24,7 @@ public class CajaBlanca {
 		MinMax.minMax(xs);
 	}
 	
-	@Test
+	@Test(expected = EmptyNumberException.class)
 	public void decisionCoverage(){
 		xs =new int[] {0,1};
 		MinMax.minMax(xs);
@@ -30,7 +32,7 @@ public class CajaBlanca {
 		MinMax.minMax(xs);		
 	}
 	
-	@Test
+	@Test(expected = EmptyNumberException.class)
 	public void conditionCoverage(){
 		xs =new int[] {0,1};
 		MinMax.minMax(xs);
@@ -38,7 +40,7 @@ public class CajaBlanca {
 		MinMax.minMax(xs);
 	}
 	
-	@Test
+	@Test(expected = EmptyNumberException.class)
 	public void decisionConditionCoverage(){
 		decisionCoverage();
 		conditionCoverage();
