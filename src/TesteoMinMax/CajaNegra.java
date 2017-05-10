@@ -62,6 +62,7 @@ public class CajaNegra {
 		xs = MinMax.minMax(xs);
 		assertEquals(0,xs[0],EPSILON);
 		assertEquals(2,xs[1],EPSILON);
+		assertEquals(2,xs.length,EPSILON);
 	}
 	
 	@Test(expected = EmptyNumberException.class)
